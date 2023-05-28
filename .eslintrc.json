@@ -7,16 +7,11 @@
     "airbnb",
     "prettier"
   ],
-  "plugins": [
-    "react",
-    "prettier"
-  ],
+  "plugins": ["react", "prettier"],
   "settings": {
     "import/resolver": {
       "node": {
-        "paths": [
-          "src"
-        ]
+        "paths": ["src","src/atoms","src/elements", "src/componets"]
       }
     }
   },
