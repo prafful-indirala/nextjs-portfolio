@@ -3,7 +3,7 @@ import React, { Fragment } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Popover, Transition } from '@headlessui/react'
-import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin, FaMoon, FaTwitter } from "react-icons/fa";
 
 import { SOCIAL_MEDIA_URLS } from '../constants/socialMediaUrls'
 
@@ -40,18 +40,7 @@ export default function Header() {
 
       <div className='hidden sm:block'>
         <div className='flex gap-5'>
-          <Link href={SOCIAL_MEDIA_URLS.twitter} target='_blank'>
-            <FaTwitter />
-          </Link>
-          <Link href={SOCIAL_MEDIA_URLS.linkedin} target='_blank'>
-            <FaLinkedin />
-          </Link>
-          <Link href={SOCIAL_MEDIA_URLS.instagram} target='_blank'>
-            <FaInstagram />
-          </Link>
-          <Link href={SOCIAL_MEDIA_URLS.github} target='_blank'>
-            <FaGithub />
-          </Link>
+          <FaMoon />
         </div>
       </div>
 
