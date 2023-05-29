@@ -1,21 +1,35 @@
 "use client"
-import Link from 'next/link'
 import React, { Fragment } from 'react'
+import Link from 'next/link'
+import Image from 'next/image'
 import { Popover, Transition } from '@headlessui/react'
+import { FaGithub, FaInstagram, FaLinkedin, FaTwitter } from "react-icons/fa";
+
+import { SOCIAL_MEDIA_URLS } from '../constants/socialMediaUrls'
+
 
 export default function Header() {
   return (
-    <Popover className='container fixed mx-auto flex border-b-2 px-6 py-5 h-20'>
-      <h1 className='font-bold text-red'>prafful</h1>
+    <Popover className='container z-10 fixed flex justify-between items-center w-full bg-gradient-to- #282834 from-zinc-200 backdrop-blur-2xl px-10 py-10 h-20'>
+      <Link href="/">
+        <Image
+          className="rounded-full"
+          src="/logo.jpg"
+          alt="Logo"
+          width={50}
+          height={30}
+          priority
+
+        />
+      </Link>
       <div className='grow'>
-        <div className='hidden sm:flex items-center justify-center gap-2 md:gap-8'>
-          <Link href="home">Home</Link>
-          <Link href="home">Portfolio</Link>
-          <Link href="home">Testimonial</Link>
-          <Link href="home">About</Link>
+        <div className='hidden sm:flex items-center justify-center gap-8 md:gap-8'>
+          <Link href="/portfolio">Portfolio</Link>
+          <Link href="/testimonial">Testimonial</Link>
+          <Link href="/about">About</Link>
         </div>
       </div>
-      <div className='flex grow items-center justify-end sm:hidden'>
+      <div className='flex  items-center  sm:hidden'>
         <Popover.Button className='inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500'>
           <span className='sr-only'>Open menu</span>
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-6 h-6">
@@ -24,12 +38,40 @@ export default function Header() {
         </Popover.Button>
       </div>
 
+      <div className='hidden sm:block'>
+        <div className='flex gap-5'>
+          <Link href={SOCIAL_MEDIA_URLS.twitter} target='_blank'>
+            <FaTwitter />
+          </Link>
+          <Link href={SOCIAL_MEDIA_URLS.linkedin} target='_blank'>
+            <FaLinkedin />
+          </Link>
+          <Link href={SOCIAL_MEDIA_URLS.instagram} target='_blank'>
+            <FaInstagram />
+          </Link>
+          <Link href={SOCIAL_MEDIA_URLS.github} target='_blank'>
+            <FaGithub />
+          </Link>
+        </div>
+      </div>
+
+      {/* mobile menu icon */}
       <Transition as={Fragment} enter="duration-200 ease-out" enterFrom="opacity-0 scale-95" enterTo="opacity-100 scale-100" leaveFrom="opacity-100 scale-100" leaveTo="opacity-0 scale-95">
         <Popover.Panel focus className='absolute inset-x-0 top-0 origin-top-right transform p-2 transition md:hidden' >
           <div className='rounded-lg bg-black shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2 divide-gray-50'>
             <div className='px-5 pt-5 pb-6'>
               <div className='flex items-center justify-between'>
-                <h1 className='font-bold text-red'>prafful</h1>
+                <Link href="/">
+                  <Image
+                    className="rounded-full"
+                    src="/logo.jpg"
+                    alt="Logo"
+                    width={50}
+                    height={30}
+                    priority
+
+                  />
+                </Link>
                 <div className='-mr-2'>
                   <Popover.Button className='inline-flex items-center justify-center rounded-md bg-white p-2 text-gray-400 hover:bg-gray-100 hover:text-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500'>
                     <span className='sr-only'>Close menu</span>
@@ -42,28 +84,32 @@ export default function Header() {
               </div>
               <div className='mt-6'>
                 <nav className='grid gap-y-8'>
-                  <Link className='focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2' href="home" >Home</Link>
-                  <Link className='focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2' href="home">Portfolio</Link>
-                  <Link className='focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2' href="home">Testimonial</Link>
-                  <Link className='focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2' href="home">About</Link>
+                  <Link className='focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2' href="/" >Home</Link>
+                  <Link className='focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2' href="/portfolio">Portfolio</Link>
+                  <Link className='focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2' href="/testimonial">Testimonial</Link>
+                  <Link className='focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500 px-2' href="/about">About</Link>
                 </nav>
               </div>
-              <div className='mt-6 flex flex-col items-center gap-2'>
-                <Link href="home" className='rounded-md bg-white px-4 py-2 text-sm font-medium text-black md:text-xl w-full border-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500'>LinkedIn</Link>
-                <Link href="home" className='rounded-md bg-white px-4 py-2 text-sm font-medium text-black md:text-xl w-full border-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500'>Twitter</Link>
-                <Link href="home" className='rounded-md bg-white px-4 py-2 text-sm font-medium text-black md:text-xl w-full border-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-gray-500'>Instagram</Link>
+              <div className='mt-6 flex items-center gap-5'>
+                <Link href={SOCIAL_MEDIA_URLS.twitter} target='_blank'>
+                  <FaTwitter />
+                </Link>
+                <Link href={SOCIAL_MEDIA_URLS.linkedin} target='_blank'>
+                  <FaLinkedin />
+                </Link>
+                <Link href={SOCIAL_MEDIA_URLS.instagram} target='_blank'>
+                  <FaInstagram />
+                </Link>
+                <Link href={SOCIAL_MEDIA_URLS.github} target='_blank' >
+                  <FaGithub />
+                </Link>
               </div>
             </div>
           </div>
         </Popover.Panel>
       </Transition>
-      <div className='hidden sm:block'>
-        <Link href="home" className='mr-2 font-bold'>
-          LinkedIn
-        </Link>
-        <Link href="home" className='mr-2 font-bold'>Twitter</Link>
-        <Link href="home" className='font-bold'>Instagram</Link>
-      </div>
+
     </Popover>
+
   )
 }
