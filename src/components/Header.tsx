@@ -12,7 +12,7 @@ import { SOCIAL_MEDIA_URLS } from '../constants/socialMediaUrls'
 
 export default function Header({ isDark, setIsDark }) {
   return (
-    <Popover className='container z-10 fixed flex justify-between items-center w-full  backdrop-blur-2xl px-10 py-10 h-20'>
+    <Popover className='fixed z-10 flex justify-between items-center w-full	backdrop-blur-2xl px-10 py-10 h-20 '>
       <Link href="/">
         <Image
           className="rounded-full"
@@ -26,17 +26,17 @@ export default function Header({ isDark, setIsDark }) {
       </Link>
       <div className='grow'>
         <div className='hidden sm:flex items-center justify-center gap-8 md:gap-8'>
-          <Link href="/portfolio">
+          <Link href="#portfolio">
             <p className='dark: text-gray-400'>
               Portfolio
             </p>
           </Link>
-          <Link href="/testimonial">
+          <Link href="#testimonial">
             <p className='dark: text-gray-400'>
               Testimonial
             </p>
           </Link>
-          <Link href="/about"> <p className='dark: text-gray-400'>
+          <Link href="#about"> <p className='dark: text-gray-400'>
             About
           </p>
           </Link>
