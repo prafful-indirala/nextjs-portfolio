@@ -3,14 +3,16 @@ import React, { Fragment } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Popover, Transition } from '@headlessui/react'
-import { FaGithub, FaInstagram, FaLinkedin, FaMoon, FaTwitter } from "react-icons/fa";
+import { FaGithub, FaInstagram, FaLinkedin, FaMoon, FaTwitter, } from "react-icons/fa";
+import { LuSunMoon, LuMoonStar } from "react-icons/lu"
+
 
 import { SOCIAL_MEDIA_URLS } from '../constants/socialMediaUrls'
 
 
-export default function Header() {
+export default function Header({ isDark, setIsDark }) {
   return (
-    <Popover className='container z-10 fixed flex justify-between items-center w-full bg-gradient-to- #282834 from-zinc-200 backdrop-blur-2xl px-10 py-10 h-20'>
+    <Popover className='container z-10 fixed flex justify-between items-center w-full  backdrop-blur-2xl px-10 py-10 h-20'>
       <Link href="/">
         <Image
           className="rounded-full"
@@ -24,9 +26,20 @@ export default function Header() {
       </Link>
       <div className='grow'>
         <div className='hidden sm:flex items-center justify-center gap-8 md:gap-8'>
-          <Link href="/portfolio">Portfolio</Link>
-          <Link href="/testimonial">Testimonial</Link>
-          <Link href="/about">About</Link>
+          <Link href="/portfolio">
+            <p className='dark: text-gray-400'>
+              Portfolio
+            </p>
+          </Link>
+          <Link href="/testimonial">
+            <p className='dark: text-gray-400'>
+              Testimonial
+            </p>
+          </Link>
+          <Link href="/about"> <p className='dark: text-gray-400'>
+            About
+          </p>
+          </Link>
         </div>
       </div>
       <div className='flex  items-center  sm:hidden'>
@@ -39,8 +52,8 @@ export default function Header() {
       </div>
 
       <div className='hidden sm:block'>
-        <div className='flex gap-5'>
-          <FaMoon />
+        <div className='flex gap-5 cursor-pointer' onClick={() => setIsDark(!isDark)}>
+          {isDark ? <LuSunMoon color='white' size={20} /> : <LuMoonStar size={20} />}
         </div>
       </div>
 
@@ -97,7 +110,6 @@ export default function Header() {
           </div>
         </Popover.Panel>
       </Transition>
-
     </Popover>
 
   )

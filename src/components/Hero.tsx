@@ -11,7 +11,7 @@ export default function Hero() {
         <div className="gap-10 sm:flex flex-col lg:flex-row">
             <div className="relative flex flex-col items-start gap-5 flex-1 w-70">
                 <p className="text-3xl text-slate-400">I'm</p>
-                <h2 className="text-7xl">Prafful Indirala</h2>
+                <h2 className="text-7xl dark:text-white">Prafful Indirala</h2>
                 <div className="bg-[#f4b424] h-2 w-52">
 
                 </div>
